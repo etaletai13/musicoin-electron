@@ -6,13 +6,7 @@
   "repository": "https://github.com/etaletai13/electron-musicoin",
   "author": "Casey Joel Parker <parker.casey@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "nativefier": "latest"
-  },
   "scripts": {
-    "darwin": "./build darwin x64 && ls dist",
-    "linux": "./build linux x64 && ls dist && ./build linux ia32 && ls dist",
-    "windows": "./build win32 x64 && ls dist && ./build win32 x64 && ls dist",
     "test": "ls dist"
   }
 }

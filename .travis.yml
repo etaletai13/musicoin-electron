@@ -6,23 +6,22 @@ jobs:
     os: osx
     yarn: 1.5.0
     before_install:
-    - brew update
     - brew install wine
+    cache:
+      - yarn
+      directories:
+        - $HOME/Library/Caches/Homebrew
     script:
     - git config credential.helper "store --file=.git/credentials"
     - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-    - "yarn darwin"
-    - echo "OSX built"
-    - "yarn linux"
-    - echo "Linux built"
-    - "yarn windows"
-    - echo "Adding files back"
+    - "./build"
+    - echo "Woohoo"
+    - echo "Pushing files back"
     - git add -A
     - git commit -am "v1.0.0-${TRAVIS_BUILD_NUMBER}"
     - git checkout release
     - git merge staging
     - git push origin release -f
-    - echo "Woohoo"
   - stage: Deploy to Github
     deploy:
       provider: releases
