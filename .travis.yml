@@ -1,10 +1,8 @@
-language: node_js
-os:
-- linux
-node_js: 8.0.0
 jobs:
   include:
   - stage: Build for OSX
+    language: node_js
+    node_js: 8.0.0
     os: osx
     yarn: 1.5.0
     script:
@@ -14,8 +12,9 @@ jobs:
     - git checkout -b release
     - "yarn darwin"
     after_success:
-    - git tag "v1.0.0-alpha${TRAVIS_BUILD_NUMBER}"
-    - git push origin --tags
+    - git add -A
+    - git commit -am "v1.0.0-${TRAVIS_BUILD_NUMBER}"
+    - git push origin release -f
   - stage: Deploy to Github
     deploy:
       provider: releases
