@@ -1,27 +1,34 @@
 jobs:
   include:
-  - stage: build
+  - stage: Meet Bob the Builder
+    language: node_js
+    os: osx
+    yarn: 1.5.0
+    cache: yarn
+    script:
+      - cd build && yarn --link-duplicates -s && cd ..
+  - stage: Bob Builds Things.
     language: node_js
     node_js: 8.0.0
     os: osx
     yarn: 1.5.0
     before_install:
     - brew install wine
-    cache:
+    - git config credential.helper "store --file=.git/credentials"
+    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+    cache: 
       - yarn
       directories:
         - $HOME/Library/Caches/Homebrew
     script:
-    - git config credential.helper "store --file=.git/credentials"
-    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
     - "./build"
     - echo "Woohoo"
     - echo "Pushing files back"
-    - git add -A
+    - git add dist
     - git commit -am "v1.0.0-${TRAVIS_BUILD_NUMBER}"
-    - git checkout release
+    - git checkout release 
     - git merge staging
-    - git push origin release -f
+    - git push origin release --f
   - stage: Deploy to Github
     deploy:
       provider: releases
@@ -30,5 +37,3 @@ jobs:
       skip_cleanup: true
       on:
         repo: etaletai13/musicoin-electron
-        branches:
-          only: release
