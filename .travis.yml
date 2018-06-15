@@ -1,11 +1,15 @@
-os: osx
-node:
-- '8'
+language: node_js
 yarn:
 - '1.7.0'
 cache:
   directories:
   - "$HOME/Library/Caches/Homebrew"
+before_script:
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+after_success:
+  - git add -A
+  - git tag "release-${TRAVIS_BUILD_NUMBER}"
 deploy:
   provider: releases
   api_key: "${GH_TOKEN}"
@@ -13,8 +17,4 @@ deploy:
   on:
     repo: etaletai13/musicoin-electron
     branch: staging
-    script:
-    - git config credential.helper "store --file=.git/credentials"
-    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-    - cd build && yarn --link-duplicates -s && cd ..
-    - "./build"
+    tags: true
