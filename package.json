@@ -1,0 +1,12 @@
+{
+  "name": "musicoin-web",
+  "version": "1.0.0",
+  "main": "./build",
+  "description": "light electron musicoin.org client",
+  "repository": "https://github.com/etaletai13/electron-musicoin",
+  "author": "Casey Joel Parker <parker.casey@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nativefier": "latest"
+  }
+}
