@@ -10,9 +10,9 @@
     "nativefier": "latest"
   },
   "scripts": {
-    "darwin": "./build darwin x64",
-    "linux": "./build linux x64 && ./build linux ia32",
-    "windows": "./build win32 x64 && build win32 x64",
-    "test": "$(ls dist/)"
+    "darwin": "./build darwin x64 && ls dist",
+    "linux": "./build linux x64 && ls dist && ./build linux ia32 && ls dist",
+    "windows": "./build win32 x64 && ls dist && ./build win32 x64 && ls dist",
+    "test": "ls dist"
   }
 }
