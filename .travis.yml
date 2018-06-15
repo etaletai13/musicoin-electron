@@ -2,7 +2,26 @@ language: node_js
 os:
 - linux
 - osx
-node_js:
-- '8'
-yarn:
-- '1.7.0'
+node_js: 8.0.0
+jobs:
+  include:
+  - stage: Build Electron Apps
+    yarn: 1.5.0
+    script:
+    - "./build linux"
+    - "./build win32"
+    - "./build darwin"
+    after_success:
+    - git config credential.helper "store --file=.git/credentials"
+    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+    - git branch -d release
+    - git checkout -b release
+    - git tag "v1.0.0-alpha${TRAVIS_BUILD_NUMBER}"
+    - git push origin --tags
+deploy:
+  provider: releases
+  api_key:
+    secure: RoQZD3EeT1Dax7pEBjaBBveo+1Ng3akhym81iNACKRZMGKwvlc5TmhjcCqwSVgsuL1WNiIQM2tePpZF5dE69YJleYuBeMd/owUIL8Zr084Abx7n0/TbPBciLYbdvYotyFNaV5pTu/VZ24DD+vh/CS8nD8nX8Q/L6XB2/sLgVrn2JoPW0dxb1E2s89P3nj6bC72JmXAe8Hp6LpUo1H+nHjAZnrb7ZuJ/YSScsFuxU1pCLUOMn9I8dRrjwg/cAnJNkQeYjim3geKBrijX8QkXUXSVBcVebXLPClabkM/bwZaASD19qFbSg2MAiLRG47iRZjUxgJqAEH5ZDX2sXDQwycdeZFlUtQTOvMKjYQEHli1egolIDjgoLHA+bGCev5dtktI0aHfBIolfZJhqMKNKiDaTiqfJK4JJvvQyDH8SaB56c1zOPhmokbp/h4NRDh4+oXEB9ZzZA0GSfXJTcuV7tQZ3XycSKqjr35y+tLel+fZqn2WB06d5xigh8/8Bdm4Jy9TYQqSJ0X/8kbNo2LaYyb4iqFVFMcyH/IJRKbC1dyl8JGvOwgCr1MAk68K4g5t3Vm4wPX0tfB9SDIHsXY3uOMzsGDbcNyBj+pNcTQ+3+9QdTL7uOHaHN8FCiuyXy15DJL05aQgiGCwSnJF8MPyDzRiREnZhKyE68GoKCX3m7yzQ=
+  file: "./dist/*"
+  on:
+    repo: etaletai13/musicoin-electron
