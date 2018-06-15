@@ -5,8 +5,11 @@
   "repository": "https://github.com/etaletai13/electron-musicoin",
   "author": "Casey Joel Parker <parker.casey@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0",
+    "yarn": ">=1.0.0"
+  },
   "scripts": {
-    "postinstall": "./build",
     "test": "ls dist"
   }
 }
