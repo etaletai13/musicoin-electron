@@ -8,12 +8,14 @@ jobs:
     script:
     - git config credential.helper "store --file=.git/credentials"
     - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-    - git branch -d release
-    - git checkout -b release
     - "yarn darwin"
+    - "yarn linux"
+    - "yarn windows"
     after_success:
     - git add -A
     - git commit -am "v1.0.0-${TRAVIS_BUILD_NUMBER}"
+    - git checkout release
+    - git merge staging
     - git push origin release -f
   - stage: Deploy to Github
     deploy:
