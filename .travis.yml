@@ -5,6 +5,9 @@ jobs:
     node_js: 8.0.0
     os: osx
     yarn: 1.5.0
+    before_install:
+    - brew update
+    - brew install wine
     script:
     - git config credential.helper "store --file=.git/credentials"
     - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
