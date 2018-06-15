@@ -10,6 +10,9 @@
     "nativefier": "latest"
   },
   "scripts": {
-    "test": "echo \"Somebody write tests.\""
+    "darwin": "./build darwin x64 && ./build darwin ia32",
+    "linux": "./build linux x64 && ./build linux ia32",
+    "windows": "./build win32 x64 && build win32 x64",
+    "test": "$(ls dist/)"
   }
 }

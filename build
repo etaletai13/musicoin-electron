@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 
 OS=$1
+ARCH=$2
 
 yarn run nativefier -m -n "Musicoin" \
-    -a "amd64"  \
+    -a "${ARCH}"  \
     -i "./icon.png" \
     --app-copyright 'Musicoin.org' \
     --app-version 1.0.0 \
