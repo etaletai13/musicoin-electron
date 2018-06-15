@@ -1,37 +1,20 @@
-language: node
-node: 
-  - "4"
+os: osx
+node:
+- '8'
 yarn:
-  - "1.5.0"
-cache: 
+- '1.7.0'
+cache:
   directories:
-  - $HOME/Library/Caches/Homebrew
-jobs:
-  include:
-  - stage: Meet Bob the Builder.
-    before_script:
-      - git config credential.helper "store --file=.git/credentials"
-      - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-      - git checkout staging
-      - cd build && yarn --link-duplicates -s && cd ..
-    after_success:
-      - git add -A
-      - git commit -am "builder for ${TRAVIS_BUILD_NUMBER}"
-      - git checkout -b builder
-      - git merge staging
-      - git push origin builder
-  - stage: Bob Builds Things.
-    before_script:
-      - git config credential.helper "store --file=.git/credentials"
-      - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-      - brew install wine
-      - git checkout builder
+  - "$HOME/Library/Caches/Homebrew"
+deploy:
+  provider: releases
+  api_key: "${GH_TOKEN}"
+  file: "./dist"
+  on:
+    repo: etaletai13/musicoin-electron
+    branch: staging
     script:
-      - "./build"
-      - echo "Woohoo, Bob sure does build things."
-    after_success:
-      - git add dist
-      - git tag "v1.0.0-${TRAVIS_BUILD_NUMBER}"
-      - git checkout origin master
-      - git branch -d builder
-      - git push origin --tags
+    - git config credential.helper "store --file=.git/credentials"
+    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+    - cd build && yarn --link-duplicates -s && cd ..
+    - "./build"
