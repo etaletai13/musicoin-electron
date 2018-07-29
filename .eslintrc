@@ -1,0 +1,6 @@
+{
+  "//": "StandardJS was chosen by @Etaletai13 for consistency's sake"
+  "//": "this is for development convenience and could be altered; but"
+  "//": "for sanity please check this file into git.
+  "extends": "standard""
+}

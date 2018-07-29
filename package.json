@@ -1,0 +1,58 @@
+{
+  "//": [
+    "Prefece devDependences with 'yarn' instead to run like globals.",
+    "all comments must come in this block, or will be clobbered.",
+    "please check yarn.lock and all editor configuration files into",
+    "scm. Please also write a script here for any and all matters of",
+    "course in development. Follow the patterns for re-usable code."
+  ],
+  "name": "MusicoinApp",
+  "version": "1.0.0",
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "~0.14.3",
+    "lint-staged": "~7.2.0",
+    "mocha": "~5.2.0",
+    "prettier-standard": "~8.0.1",
+    "snazzy": "~7.1.1",
+    "spectron": "~3.8.0",
+    "write-good": "~0.13.0"
+  },
+  "scripts": {
+    "lint": "yarn lint:docs && yarn lint:js",
+    "lint:docs": "yarn write-good *.markdown | snazzy",
+    "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
+    "precommit": "lint-staged",
+    "test": "yarn lint && yarn mocha"
+  },
+  "lint-staged": {
+    "linters": {
+      "**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  },
+  "standard": {
+    "globals": [
+      "app",
+      "appData",
+      "configFile"
+    ],
+    "ignore": [
+      "**/dist/",
+      "node_modules/**/*",
+      "**/node_modules/"
+    ],
+    "plugins": [
+      "html",
+      "markdown",
+      "mocha"
+    ]
+  },
+  "dependencies": {
+    "electron": "~2.0.5",
+    "gmc-bin-prebuilts": "~1.1.0-beta1"
+  }
+}
