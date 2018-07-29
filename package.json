@@ -11,8 +11,6 @@
   "main": "main.js",
   "license": "MIT",
   "devDependencies": {
-    "husky": "~0.14.3",
-    "lint-staged": "~7.2.0",
     "mocha": "~5.2.0",
     "prettier-standard": "~8.0.1",
     "snazzy": "~7.1.1",
@@ -20,20 +18,13 @@
     "write-good": "~0.13.0"
   },
   "scripts": {
-    "lint:docs": "yarn write-good *.markdown | snazzy",
-    "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
+    "lint": "yarn lint:docs && yarn lint:js",
+    "lint:docs": "yarn write-good '*.markdown' '**/*.md' | snazzy",
+    "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js' | snazzy",
     "precommit": "lint-staged",
     "test": "yarn lint && yarn mocha"
   },
-  "lint-staged": {
-      "**/*.{md,markdown}": [
-        "write-good", "git add"
-      ],
-      "**/*.js": [
-        "prettier-standard",
-        "git add"
-      ]
-  },
+  "lint-staged": {},
   "standard": {
     "globals": [
       "app",
