@@ -20,13 +20,15 @@
     "write-good": "~0.13.0"
   },
   "scripts": {
-    "lint": "yarn lint:docs && yarn lint:js",
     "lint:docs": "yarn write-good *.markdown | snazzy",
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
     "precommit": "lint-staged",
     "test": "yarn lint && yarn mocha"
   },
   "lint-staged": {
+      "**/*.{md,markdown}": [
+        "write-good", "git add"
+      ],
       "**/*.js": [
         "prettier-standard",
         "git add"
