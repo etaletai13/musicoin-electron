@@ -8,4 +8,4 @@ const {
   Menu
 } = require('electron')
 
-const Startup = require('./js/startup')
+const Startup = require('./startup')
