@@ -27,12 +27,10 @@
     "test": "yarn lint && yarn mocha"
   },
   "lint-staged": {
-    "linters": {
       "**/*.js": [
         "prettier-standard",
         "git add"
       ]
-    }
   },
   "standard": {
     "globals": [
