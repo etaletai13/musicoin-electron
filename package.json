@@ -30,16 +30,12 @@
   },
   "devDependencies": {
     "@types/mocha": "~5.2.5",
-    "ava": "~0.25.0",
     "chai": "~4.1.2",
-    "chai-as-promised": "~7.1.1",
+    "chai-json": "~1.0.0",
     "electron": "~2.0.6",
-    "electron-chromedriver": "~3.0.0-beta.1",
     "mocha": "~5.2.0",
-    "pre-commit": "~1.2.2",
+    "mochawesome": "~3.0.3",
     "prettier-standard": "~8.0.1",
-    "snazzy": "~7.1.1",
-    "spectron": "~3.8.0",
     "write-good": "~0.13.0"
   },
   "precommit": {
@@ -47,14 +43,14 @@
     "colors": true
   },
   "scripts": {
-    "lint": "yarn lint:docs && yarn lint:js",
-    "lint:docs": "yarn write-good ./docs/* | snazzy",
-    "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js' | snazzy",
+    "lint": "yarn lint:js && yarn lint:tests",
+    "lint:docs": "yarn write-good ./docs/*",
+    "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
+    "lint:tests": "yarn prettier-standard 'test/*'",
     "yarn-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
-    "preinstall": "rm -rf bin node_modules && echo \"If 'yarn' fails here, run 'yarn yarn:upgrade'\"",
     "precommit": "yarn global add semver && yarn lint",
     "start": "yarn electron ./",
-    "test": "mocha"
+    "test": "mocha --reporter mochawesome --reporter-options reportDir=docs/"
   },
   "standard": {
     "ignore": [
