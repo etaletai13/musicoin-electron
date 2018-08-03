@@ -73,3 +73,4 @@ We have marked specific [Issues][https://github.com/Musicoin/desktop/issues] for
 ## License
 
 MIT
+[![Build Status](https://travis-ci.org/etaletai13/musicoin-electron.svg?branch=master)](https://travis-ci.org/etaletai13/musicoin-electron)
