@@ -8,4 +8,5 @@ const {
   Menu
 } = require('electron')
 
-const Startup = require('./startup')
+const Gmc = require('./js/gmc')
+const Startup = require('./js/startup')

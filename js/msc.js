@@ -22,7 +22,7 @@ if (
 var appData = musicoinRoot + '/wallet-ui'
 var logDir = appData + '/logs'
 var configFolder = process.cwd() + '/config'
-var pathOfNodes = musicoinRoot + '/bootnodes.json'
+var pathOfNodes = musicoinRoot + '/config/bootnodes.json'
 var configFolderHome = musicoinRoot + '/config'
 var settings = musicoinRoot + '/config/settings.js'
 
@@ -31,7 +31,7 @@ if (!fs.existsSync(appData)) fs.mkdirSync(appData)
 if (!fs.existsSync(logDir)) fs.mkdirSync(logDir)
 if (fs.existsSync(pathOfNodes)) fs.removeSync(pathOfNodes)
 if (!fs.existsSync(pathOfNodes)) {
-  fs.copySync(process.cwd() + '/bootnodes.json', pathOfNodes)
+  fs.copySync(process.cwd() + '/config/bootnodes.json', pathOfNodes)
 }
 if (!fs.existsSync(configFolderHome)) {
   fs.copySync(configFolder, configFolderHome)

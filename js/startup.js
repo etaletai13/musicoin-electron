@@ -1,27 +1,21 @@
 // Object to capture process exits and call app specific cleanup function
 
-function noOp () {}
+function noOp () {};
 
 const child_process = require('child_process')
-var fs = require('fs')
+var fs = require('fs-extra')
 var os = require('os')
 var platform = os.platform()
 
-if (
-  process.env.APPDATA != undefined &&
-  process.env.APPDATA.includes('Settings')
-) {
-  // hack for XP
-  var musicoinRoot =
-    process.env.APPDATA.slice(0, -17) + '\\AppData\\Roaming\\Musicoin'
+if (process.env.APPDATA != undefined && process.env.APPDATA.includes('Settings')) { // hack for XP
+  var musicoinRoot = process.env.APPDATA.slice(0, -17) + '\\AppData\\Roaming\\Musicoin'
 } else if (platform.includes('win32')) {
   var musicoinRoot = process.env.APPDATA + '\\Musicoin'
   var configFolderHome = musicoinRoot + '\\config'
 } else if (platform.includes('darwin')) {
   var musicoinRoot = process.env.HOME + '/Library/Musicoin'
   var configFolderHome = musicoinRoot + '/config'
-} else if (platform.includes('linux')) {
-  // linux
+} else if (platform.includes('linux')) { // linux
   var musicoinRoot = process.env.HOME + '/.musicoin'
 }
 
@@ -33,29 +27,14 @@ function Startup (logger, appDataDir) {
   }
 }
 
-Startup.prototype.execAndKillOnShutdown = function (
-  name,
-  absolutePath,
-  command,
-  args,
-  sync
-) {
+Startup.prototype.execAndKillOnShutdown = function (name, absolutePath, command, args, sync) {
   var logger = this.logger
-  logger.log(
-    'Starting ' +
-      name +
-      ': ' +
-      command +
-      ', args: [' +
-      args +
-      '], cwd: ' +
-      absolutePath
-  )
+  logger.log('Starting ' + name + ': ' + command + ', args: [' + args + '], cwd: ' + absolutePath)
   if (sync) {
-    child_process.spawnSync(command, args, { cwd: absolutePath })
+    child_process.spawnSync(command, args, {cwd: absolutePath})
     return
   }
-  var child = child_process.spawn(command, args, { cwd: absolutePath })
+  var child = child_process.spawn(command, args, {cwd: absolutePath})
   logger.log('Started ' + name + ': pid=' + child.pid)
   fs.writeFileSync(musicoinRoot + '/config/gmc.pid', child.pid)
   child.stdout.on('data', function (data) {
@@ -87,31 +66,19 @@ Startup.prototype.startChildProcess = function (commandObj) {
     this.startChildProcess(commandObj.prereq)
   }
   this.initCommand(commandObj)
-  this.execAndKillOnShutdown(
-    commandObj.name,
-    commandObj.absolutePath,
-    commandObj.command,
-    commandObj.args,
-    commandObj.sync
-  )
+  this.execAndKillOnShutdown(commandObj.name, commandObj.absolutePath, commandObj.command, commandObj.args, commandObj.sync)
 }
 
 Startup.prototype.initCommand = function (commandObj) {
   this.logger.log('Initializing command: ' + JSON.stringify(commandObj))
-  if (commandObj.path) {
-    commandObj.absolutePath = this.injectPathVariables(commandObj.path)
-  }
-  if (commandObj.command) {
-    commandObj.command = this.injectPathVariables(commandObj.command)
-  }
+  if (commandObj.path) commandObj.absolutePath = this.injectPathVariables(commandObj.path)
+  if (commandObj.command) commandObj.command = this.injectPathVariables(commandObj.command)
   if (commandObj.args) {
     for (var i = 0; i < commandObj.args.length; i++) {
       commandObj.args[i] = this.injectPathVariables(commandObj.args[i])
     }
   }
-  if (commandObj.chainDir) {
-    commandObj.chainDir = this.injectPathVariables(commandObj.chainDir)
-  }
+  if (commandObj.chainDir) commandObj.chainDir = this.injectPathVariables(commandObj.chainDir)
   this.logger.log('Initialized command: ' + JSON.stringify(commandObj))
 }
 

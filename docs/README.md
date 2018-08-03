@@ -1,0 +1,75 @@
+# Musicoin Wallet
+
+The official Musicoin Desktop Wallet
+
+[![GitHub release](https://img.shields.io/github/release/musicoin/desktop.svg?style=for-the-badge)](https://github.com/Musicoin/desktop/releases/latest)
+[![license](https://img.shields.io/github/license/musicoin/desktop.svg?style=for-the-badge)](https://github.com/Musicoin/desktop/blob/master/LICENSE)
+[![Github All Releases](https://img.shields.io/github/downloads/Musicoin/desktop/total.svg?style=for-the-badge)](https://github.com/Musicoin/desktop/releases)
+
+Nightlies over at https://builder.musicoin.org
+
+![Musicoin Wallet 1.5](1.5.png)
+
+## Nightlies
+
+You can find nightlies for all supported Operating Systems can at [builder.musicoin.org](https://builder.musicoin.org/)
+
+Supported Operating systems:
+1. Windows 7 and later - [64 bit](https://builder.musicoin.org/windows-x64.exe), [32bit](https://builder.musicoin.org/windows-x32.exe)
+2. macOS - [64 bit](https://builder.musicoin.org/mac-x64.zip)
+3. Linux - [64 bit](https://builder.musicoin.org/linux-x64.tar.xz), [32bit](https://builder.musicoin.org/linux-x32.tar.xz)
+4. Windows XP and older - [32bit](https://builder.musicoin.org/windows-x32-legacy.exe), [64 bit](https://builder.musicoin.org/windows-x64-legacy.exe)
+
+## Getting started
+Prerequisites:
+- node >=8.0.0
+- yarn >=1.7.0
+- Wine for windows builds on non Windows systems
+
+## Build Release version
+
+1. `git clone https://github.com/Musicoin/desktop && cd desktop`
+2. `yarn`
+3. `cd interface ; yarn; cd ..`
+4. `nw .`
+
+## Build Alpha version
+
+1. `git clone https://github.com/Musicoin/desktop && cd desktop`
+2. Delete `package.json`
+3. Rename `package-alpha.json` to `package.json`
+4. `yarn`
+5. `nw .`
+
+## Packaging the app
+1. `git clone https://github.com/Musicoin/desktop && cd desktop`
+2. `yarn --link-duplicates`
+3. `yarn debug` - This will run in SDK mode for development.
+4. `yarn build-all`
+      -or-
+   `yarn build-x86`
+      -or-
+   `yarn build-x64`
+   to build all packages for windows, mac, and linux. This is for testing or development.
+5. `yarn run build -m --x64 ./` - for packaging MacOS x64. `-m`, `-l`, or `-w` determines the os and architecture.
+
+## Testing new interface builds
+
+This repo contains UI modules used for the last release version. To suggest changes, edit the files at `interface/` and issue a PR to the [desktop-interface](https://github.com/Musicoin/desktop-interface) repo.
+
+## Contributing
+
+Pull Requests and Bug Reports are most welcome.
+
+The Wallet repo makes use of the following submodules:
+1. [Default UI module](https://github.com/Musicoin/desktop-interface)
+2. [`go-musicoin` npm package](https://github.com/Musicoin/gmc-node-modules)
+3. [Web3 fork of musicoin](https://github.com/Musicoin/web3.js)
+
+## Bounty program
+
+We have marked specific [Issues][https://github.com/Musicoin/desktop/issues] for bounty, and they carry a bounty label with them. You can learn more about the [bounty](docs/BOUNTY.md) proram.
+
+## License
+
+MIT

@@ -1,7 +1,7 @@
 const Promise = require('bluebird')
-var Web3 = require('web3')
-var request = require('request')
-var blockies = require('ethereum-blockies')
+const Web3 = require('web3')
+const request = require('request')
+const blockies = require('ethereum-blockies')
 
 function Web3Connector (chainConfig, mschub, connectionCallback) {
   this.web3 = new Web3()
@@ -17,7 +17,7 @@ function Web3Connector (chainConfig, mschub, connectionCallback) {
   this.highestBlock = 0
   this.mostRecentBlockTime = 0
 
-  window.setInterval(
+  app.setInterval(
     function () {
       var wasConnected = this.connected
       try {

@@ -1,36 +1,62 @@
 {
   "//": [
+    "TODO: Somebody rewrite this like a normal person.",
+    "===================================================",
     "Prefece devDependences with 'yarn' instead to run like globals.",
     "all comments must come in this block, or will be clobbered.",
     "please check yarn.lock and all editor configuration files into",
     "scm. Please also write a script here for any and all matters of",
-    "course in development. Follow the patterns for re-usable code."
+    "course in development. Follow the patterns for re-usable code.",
+    "While this policies chosen by one coder here are likely to evolve",
+    "the cause of such a long 'yarn install' phase is for including",
+    "every needed tool through Yarn to manage our collected dev ",
+    "environment. The philosophy is that a devOps manager should be",
+    "only making sure their developers operate. Co-operate. This may",
+    "prove a useful concept: the build phase for production does not",
+    "download what it does not need to, and does not package what the",
+    "app does not need. Changes to this preface should be discussed",
+    "as issues to the issues/bugs addresses herein, and not individual",
+    "choices. When reviewing this file, make certain no global packages",
+    "are ever presumed. If you can run a thing without typing 'yarn' ",
+    "first, you are using it incorrectly. Yarn is powerful, and we can",
+    "crochet with it using hooks."
   ],
   "name": "MusicoinApp",
   "version": "1.0.0",
   "main": "main.js",
   "license": "MIT",
+  "engines": {
+    "yarn": ">=1.5.0"
+  },
   "devDependencies": {
+    "@types/mocha": "~5.2.5",
+    "ava": "~0.25.0",
+    "chai": "~4.1.2",
+    "chai-as-promised": "~7.1.1",
+    "electron": "~2.0.6",
+    "electron-chromedriver": "~3.0.0-beta.1",
     "mocha": "~5.2.0",
+    "pre-commit": "~1.2.2",
     "prettier-standard": "~8.0.1",
     "snazzy": "~7.1.1",
     "spectron": "~3.8.0",
     "write-good": "~0.13.0"
   },
+  "precommit": {
+    "silent": false,
+    "colors": true
+  },
   "scripts": {
     "lint": "yarn lint:docs && yarn lint:js",
-    "lint:docs": "yarn write-good '*.markdown' '**/*.md' | snazzy",
+    "lint:docs": "yarn write-good ./docs/* | snazzy",
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js' | snazzy",
-    "precommit": "lint-staged",
-    "test": "yarn lint && yarn mocha"
+    "yarn-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
+    "preinstall": "rm -rf bin node_modules && echo \"If 'yarn' fails here, run 'yarn yarn:upgrade'\"",
+    "precommit": "yarn lint",
+    "start": "yarn electron ./",
+    "test": "mocha"
   },
-  "lint-staged": {},
   "standard": {
-    "globals": [
-      "app",
-      "appData",
-      "configFile"
-    ],
     "ignore": [
       "**/dist/",
       "node_modules/**/*",
@@ -43,7 +69,13 @@
     ]
   },
   "dependencies": {
-    "electron": "~2.0.5",
-    "gmc-bin-prebuilts": "~1.1.0-beta1"
+    "bluebird": "~3.5.1",
+    "electron-window-state": "~4.1.1",
+    "ethereum-blockies": "^0.1.1",
+    "generator-mocha": "^2.0.1",
+    "gmc-bin-prebuilts": "^1.1.0-beta1",
+    "rmdir-promise": "^1.0.0",
+    "semver": "^5.5.0",
+    "web3": "github:Musicoin/web3.js"
   }
 }
