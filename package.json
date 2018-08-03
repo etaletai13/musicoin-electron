@@ -52,7 +52,7 @@
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js' | snazzy",
     "yarn-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
     "preinstall": "rm -rf bin node_modules && echo \"If 'yarn' fails here, run 'yarn yarn:upgrade'\"",
-    "precommit": "yarn lint",
+    "precommit": "yarn global add semver && yarn lint",
     "start": "yarn electron ./",
     "test": "mocha"
   },
