@@ -4,11 +4,22 @@ os:
 sudo: false
 language: node_js
 node_js:
-- '8.9.0'
-- 'stable'
+- 8.9.0
+- stable
 before_install:
 - yarn yarn-upgrade
 - export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 script:
-- yarn lint
+- yarn lint:test
 - yarn test
+- yarn lint:docs
+deploy:
+  provider: releases
+  api_key:
+    secure: aAjrR9gRSOxFz4XsfpEzwGLvE+cWszkqrWbZmQRG/nGXjrq29wKJhRD77Ce65IbUncSKW0qgJNRWrMLPLeBry9lv3ZhvTU0jZW/cUVTx0sidx7U3/yPLtsm0Fv2PZKDLFwheCVRX9gRXYfjXooXXBWkG9K4yNZKmTEp9yP0pBWeserNxtq/xExGEpj/sQb4GaGr5WRXRWOvpg8AearoFkY4oW5+Pxi5+J/IVHDm+AnrlwuW9S69tSjGsEDr489dR6pTrhSbnwgvNQev66BLuGv6rMwAHvHnc5X0H56LPi9+/17UJzVfVc6+C7rfjvjOKxAgALuAf9r4uvdPhB1DAD1aOPF4nn/HBQeYGDUYZypHvxTW+9z94Y4extW89ZqgJAt2r1nFwahr6dq/KICVDXRP05QaaMWOWJ6ndQCuhwE/KI0GuSIN//W8SxiRL+fj7pXwjFqZ+ebgkmAiA/0VKeRy40GHy0/OGwkrRp3BgEujYCLVveKqX2na/kJIILbYpIE4Sn0GgpAZayIxW15H0BKKMoBuNpOw+rQdvkm+/VKXEAMYRwcuOY63xcVezHoQWjJSiv/HJIy8QHH0BTIzBDGAvVTeb2rk/vzdcU/vtHWpdx3wkKdrgjKpLdmRcm6Bvd+6p7UIipwCmU4CiD91wwlOm4o3ltZv70mhP3tlpVCI=
+  skip_cleanup: true
+  file: "docs/*"
+  on:
+    repo: etaletai13/musicoin-electron
+    branch:
+      only: master

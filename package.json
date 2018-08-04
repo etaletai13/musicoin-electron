@@ -44,7 +44,7 @@
   },
   "scripts": {
     "lint": "yarn lint:js && yarn lint:tests",
-    "lint:docs": "yarn write-good ./docs/*",
+    "lint:docs": "yarn write-good ./docs/**/*",
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
     "lint:tests": "yarn prettier-standard 'test/*'",
     "yarn-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
