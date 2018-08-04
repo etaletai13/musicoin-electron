@@ -33,6 +33,8 @@
     "chai": "~4.1.2",
     "chai-json": "~1.0.0",
     "electron": "~2.0.6",
+    "generate": "~0.14.0",
+    "generate-readme": "~0.3.1",
     "mocha": "~5.2.0",
     "mochawesome": "~3.0.3",
     "prettier-standard": "~8.0.1",
@@ -43,6 +45,8 @@
     "colors": true
   },
   "scripts": {
+    "commit": "git commit -am 'minor update' && git add -A && git commit -a --amend",
+    "gen:docs": "yarn gen readme:node --dest ./docs",
     "lint": "yarn lint:js && yarn lint:tests",
     "lint:docs": "yarn write-good ./docs/**/*",
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",

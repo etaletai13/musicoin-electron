@@ -1,0 +1,191 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-08-04T23:19:44.774Z",
+    "end": "2018-08-04T23:19:44.792Z",
+    "duration": 18,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "f3665692-e054-4ff8-aaaf-8a5ac86afad0",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "9cb194ba-7816-455b-b7d3-0dad4c652fe7",
+        "title": "global configuration",
+        "fullFile": "/Gits/MusicoinApp/test/config.js",
+        "file": "/test/config.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "351cf1cc-79f0-48b4-aded-5d26a085a173",
+            "title": "Config files:\n",
+            "fullFile": "/Gits/MusicoinApp/test/config.js",
+            "file": "/test/config.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "- bootnodes.json should be JSON",
+                "fullTitle": "global configuration Config files:\n - bootnodes.json should be JSON",
+                "timedOut": false,
+                "duration": 2,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "expect(nodes).be.a.jsonObj()",
+                "err": {},
+                "isRoot": false,
+                "uuid": "ec4c9aaa-5b2a-441f-affe-f3f529745e1d",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "- settings.json should be JSON",
+                "fullTitle": "global configuration Config files:\n - settings.json should be JSON",
+                "timedOut": false,
+                "duration": 0,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "expect(settings).be.a.jsonObj()",
+                "err": {},
+                "isRoot": false,
+                "uuid": "60868e06-da37-41e8-b783-aff669a50359",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "ec4c9aaa-5b2a-441f-affe-f3f529745e1d",
+              "60868e06-da37-41e8-b783-aff669a50359"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 2,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "a5b393b2-423d-4b70-93cf-9a46b4269320",
+        "title": "gmc",
+        "fullFile": "/Gits/MusicoinApp/test/gmc.js",
+        "file": "/test/gmc.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [],
+        "suites": [
+          {
+            "uuid": "03c8311f-dadb-43ec-a207-57020d3d5bed",
+            "title": "Config:\n",
+            "fullFile": "/Gits/MusicoinApp/test/gmc.js",
+            "file": "/test/gmc.js",
+            "beforeHooks": [],
+            "afterHooks": [],
+            "tests": [
+              {
+                "title": "- gmc.json should be JSON",
+                "fullTitle": "gmc Config:\n - gmc.json should be JSON",
+                "timedOut": false,
+                "duration": 0,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "expect(gmc).be.a.jsonObj()",
+                "err": {},
+                "isRoot": false,
+                "uuid": "a9d2bc8b-19d0-493c-9593-645e16501aec",
+                "isHook": false,
+                "skipped": false
+              },
+              {
+                "title": "- expects {\"name\":\"Musicoin Daemon\",\"path\":\"{process.cwd}/bin/gmc/\",\"command\":\"./gmc\",\"args\":[\"--rpc\",\"--rpcapi=admin,db,eth,net,web3,personal\",\"--rpcport\",\"8545\",\"--rpcaddr\",\"127.0.0.1\",\"--rpccorsdomain\",\"localhost\",\"--fast\",\"--cache=512\"],\"rpcServer\":\"http://localhost:8545\"}",
+                "fullTitle": "gmc Config:\n - expects {\"name\":\"Musicoin Daemon\",\"path\":\"{process.cwd}/bin/gmc/\",\"command\":\"./gmc\",\"args\":[\"--rpc\",\"--rpcapi=admin,db,eth,net,web3,personal\",\"--rpcport\",\"8545\",\"--rpcaddr\",\"127.0.0.1\",\"--rpccorsdomain\",\"localhost\",\"--fast\",\"--cache=512\"],\"rpcServer\":\"http://localhost:8545\"}",
+                "timedOut": false,
+                "duration": 0,
+                "state": "passed",
+                "speed": "fast",
+                "pass": true,
+                "fail": false,
+                "pending": false,
+                "code": "expect(JSON.stringify(gmc['chain'])).to.equal(JSON.stringify(gmcEx['chain']))",
+                "err": {},
+                "isRoot": false,
+                "uuid": "9533187f-dd5e-472c-a32c-c4dce4e3ccb0",
+                "isHook": false,
+                "skipped": false
+              }
+            ],
+            "suites": [],
+            "passes": [
+              "a9d2bc8b-19d0-493c-9593-645e16501aec",
+              "9533187f-dd5e-472c-a32c-c4dce4e3ccb0"
+            ],
+            "failures": [],
+            "pending": [],
+            "skipped": [],
+            "duration": 0,
+            "root": false,
+            "rootEmpty": false,
+            "_timeout": 2000
+          }
+        ],
+        "passes": [],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}

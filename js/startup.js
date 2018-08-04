@@ -98,14 +98,20 @@ Startup.prototype.startChildProcess = function (commandObj) {
 
 Startup.prototype.initCommand = function (commandObj) {
   this.logger.log('Initializing command: ' + JSON.stringify(commandObj))
-  if (commandObj.path) { commandObj.absolutePath = this.injectPathVariables(commandObj.path) }
-  if (commandObj.command) { commandObj.command = this.injectPathVariables(commandObj.command) }
+  if (commandObj.path) {
+    commandObj.absolutePath = this.injectPathVariables(commandObj.path)
+  }
+  if (commandObj.command) {
+    commandObj.command = this.injectPathVariables(commandObj.command)
+  }
   if (commandObj.args) {
     for (var i = 0; i < commandObj.args.length; i++) {
       commandObj.args[i] = this.injectPathVariables(commandObj.args[i])
     }
   }
-  if (commandObj.chainDir) { commandObj.chainDir = this.injectPathVariables(commandObj.chainDir) }
+  if (commandObj.chainDir) {
+    commandObj.chainDir = this.injectPathVariables(commandObj.chainDir)
+  }
   this.logger.log('Initialized command: ' + JSON.stringify(commandObj))
 }
 
