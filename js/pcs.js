@@ -32,9 +32,6 @@ PropertyChangeSupport.prototype.addObservable = function (
   // TODO: We could also use a Prototype for the mschub object
   // shadow value is required here because defineProperty cannot hold a value (state) and define
   // getter/setter at the same time.  why???
-  var shadowValue = defaultValue
-  var subject = this.obj
-  var pcs = this
   Object.defineProperty(subject, prop, {
     get: function () {
       return shadowValue

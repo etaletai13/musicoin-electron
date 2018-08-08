@@ -51,7 +51,7 @@
     "lint:docs": "yarn write-good ./docs/**/*",
     "lint:js": "yarn prettier-standard '*.js' 'js/**/*.js'",
     "lint:tests": "yarn prettier-standard 'test/*'",
-    "yarn-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
+    "self-upgrade": "curl -o- -L https://yarnpkg.com/install.sh | sh",
     "start": "yarn electron ./",
     "test": "mocha --reporter mochawesome --reporter-options reportDir=docs/"
   },
