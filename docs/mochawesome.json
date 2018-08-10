@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2018-08-04T23:19:44.774Z",
-    "end": "2018-08-04T23:19:44.792Z",
-    "duration": 18,
+    "start": "2018-08-10T16:58:06.484Z",
+    "end": "2018-08-10T16:58:06.523Z",
+    "duration": 39,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "f3665692-e054-4ff8-aaaf-8a5ac86afad0",
+    "uuid": "905037a5-2c63-49ee-9a34-1067679c66bf",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "9cb194ba-7816-455b-b7d3-0dad4c652fe7",
+        "uuid": "268dfe8f-4878-454f-b3ac-c55860951492",
         "title": "global configuration",
         "fullFile": "/Gits/MusicoinApp/test/config.js",
         "file": "/test/config.js",
@@ -37,7 +37,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "351cf1cc-79f0-48b4-aded-5d26a085a173",
+            "uuid": "b0d4f1c9-9d1a-4798-bfe0-e48b28575fc7",
             "title": "Config files:\n",
             "fullFile": "/Gits/MusicoinApp/test/config.js",
             "file": "/test/config.js",
@@ -48,7 +48,7 @@
                 "title": "- bootnodes.json should be JSON",
                 "fullTitle": "global configuration Config files:\n - bootnodes.json should be JSON",
                 "timedOut": false,
-                "duration": 2,
+                "duration": 22,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -57,7 +57,7 @@
                 "code": "expect(nodes).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "ec4c9aaa-5b2a-441f-affe-f3f529745e1d",
+                "uuid": "436286f6-d2b1-4a05-a89f-af3006ad3493",
                 "isHook": false,
                 "skipped": false
               },
@@ -74,20 +74,20 @@
                 "code": "expect(settings).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "60868e06-da37-41e8-b783-aff669a50359",
+                "uuid": "108a2ffb-9719-4d70-9529-e3ff097771ae",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "ec4c9aaa-5b2a-441f-affe-f3f529745e1d",
-              "60868e06-da37-41e8-b783-aff669a50359"
+              "436286f6-d2b1-4a05-a89f-af3006ad3493",
+              "108a2ffb-9719-4d70-9529-e3ff097771ae"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 2,
+            "duration": 22,
             "root": false,
             "rootEmpty": false,
             "_timeout": 2000
@@ -103,7 +103,7 @@
         "_timeout": 2000
       },
       {
-        "uuid": "a5b393b2-423d-4b70-93cf-9a46b4269320",
+        "uuid": "5fce38e0-3a55-4040-99d8-90248160bd5e",
         "title": "gmc",
         "fullFile": "/Gits/MusicoinApp/test/gmc.js",
         "file": "/test/gmc.js",
@@ -112,7 +112,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "03c8311f-dadb-43ec-a207-57020d3d5bed",
+            "uuid": "06c522fd-174b-4876-a8be-02e44324b06c",
             "title": "Config:\n",
             "fullFile": "/Gits/MusicoinApp/test/gmc.js",
             "file": "/test/gmc.js",
@@ -132,7 +132,7 @@
                 "code": "expect(gmc).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "a9d2bc8b-19d0-493c-9593-645e16501aec",
+                "uuid": "65cd4f7e-0100-47aa-9de3-28807de68da2",
                 "isHook": false,
                 "skipped": false
               },
@@ -146,18 +146,18 @@
                 "pass": true,
                 "fail": false,
                 "pending": false,
-                "code": "expect(JSON.stringify(gmc['chain'])).to.equal(JSON.stringify(gmcEx['chain']))",
+                "code": "expect(JSON.stringify(gmc['chain'])).to.equal(\n  JSON.stringify(gmcEx['chain'])\n)",
                 "err": {},
                 "isRoot": false,
-                "uuid": "9533187f-dd5e-472c-a32c-c4dce4e3ccb0",
+                "uuid": "ce4ac6e0-ef92-4e9e-a670-60e8f85c5e98",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "a9d2bc8b-19d0-493c-9593-645e16501aec",
-              "9533187f-dd5e-472c-a32c-c4dce4e3ccb0"
+              "65cd4f7e-0100-47aa-9de3-28807de68da2",
+              "ce4ac6e0-ef92-4e9e-a670-60e8f85c5e98"
             ],
             "failures": [],
             "pending": [],

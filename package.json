@@ -73,6 +73,8 @@
     "ethereum-blockies": "^0.1.1",
     "generator-mocha": "^2.0.1",
     "gmc-bin-prebuilts": "^1.1.0-beta1",
+    "iron-swipeable-pages": "github:MagLoft/iron-swipeable-pages",
+    "msc-interface": "../msc-interface",
     "rmdir-promise": "^1.0.0",
     "semver": "^5.5.0",
     "web3": "github:Musicoin/web3.js"
