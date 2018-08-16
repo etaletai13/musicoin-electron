@@ -5,9 +5,9 @@
     "passes": 4,
     "pending": 0,
     "failures": 0,
-    "start": "2018-08-10T16:58:06.484Z",
-    "end": "2018-08-10T16:58:06.523Z",
-    "duration": 39,
+    "start": "2018-08-13T23:36:15.893Z",
+    "end": "2018-08-13T23:36:15.923Z",
+    "duration": 30,
     "testsRegistered": 4,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "905037a5-2c63-49ee-9a34-1067679c66bf",
+    "uuid": "9da909d1-3ff1-43bf-a797-baa36b01f1aa",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -28,7 +28,7 @@
     "tests": [],
     "suites": [
       {
-        "uuid": "268dfe8f-4878-454f-b3ac-c55860951492",
+        "uuid": "6a7eb200-f881-4d51-a8d2-d95202a6af22",
         "title": "global configuration",
         "fullFile": "/Gits/MusicoinApp/test/config.js",
         "file": "/test/config.js",
@@ -37,7 +37,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "b0d4f1c9-9d1a-4798-bfe0-e48b28575fc7",
+            "uuid": "a789c96a-e688-4459-9f6c-6ca9c1e9759c",
             "title": "Config files:\n",
             "fullFile": "/Gits/MusicoinApp/test/config.js",
             "file": "/test/config.js",
@@ -48,7 +48,7 @@
                 "title": "- bootnodes.json should be JSON",
                 "fullTitle": "global configuration Config files:\n - bootnodes.json should be JSON",
                 "timedOut": false,
-                "duration": 22,
+                "duration": 3,
                 "state": "passed",
                 "speed": "fast",
                 "pass": true,
@@ -57,7 +57,7 @@
                 "code": "expect(nodes).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "436286f6-d2b1-4a05-a89f-af3006ad3493",
+                "uuid": "57db2cfe-0bbf-4f5a-83e9-f7510f7245b9",
                 "isHook": false,
                 "skipped": false
               },
@@ -74,20 +74,20 @@
                 "code": "expect(settings).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "108a2ffb-9719-4d70-9529-e3ff097771ae",
+                "uuid": "b5501e00-2f9f-4470-be41-893a27d87252",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "436286f6-d2b1-4a05-a89f-af3006ad3493",
-              "108a2ffb-9719-4d70-9529-e3ff097771ae"
+              "57db2cfe-0bbf-4f5a-83e9-f7510f7245b9",
+              "b5501e00-2f9f-4470-be41-893a27d87252"
             ],
             "failures": [],
             "pending": [],
             "skipped": [],
-            "duration": 22,
+            "duration": 3,
             "root": false,
             "rootEmpty": false,
             "_timeout": 2000
@@ -103,7 +103,7 @@
         "_timeout": 2000
       },
       {
-        "uuid": "5fce38e0-3a55-4040-99d8-90248160bd5e",
+        "uuid": "4ced63cf-47f4-43cb-8753-5009d3356466",
         "title": "gmc",
         "fullFile": "/Gits/MusicoinApp/test/gmc.js",
         "file": "/test/gmc.js",
@@ -112,7 +112,7 @@
         "tests": [],
         "suites": [
           {
-            "uuid": "06c522fd-174b-4876-a8be-02e44324b06c",
+            "uuid": "8208d8f7-aca1-4e2c-a094-b7f5db4bbbb0",
             "title": "Config:\n",
             "fullFile": "/Gits/MusicoinApp/test/gmc.js",
             "file": "/test/gmc.js",
@@ -132,7 +132,7 @@
                 "code": "expect(gmc).be.a.jsonObj()",
                 "err": {},
                 "isRoot": false,
-                "uuid": "65cd4f7e-0100-47aa-9de3-28807de68da2",
+                "uuid": "bfbb6f3e-87fd-4534-b577-16ce4b5d2d43",
                 "isHook": false,
                 "skipped": false
               },
@@ -149,15 +149,15 @@
                 "code": "expect(JSON.stringify(gmc['chain'])).to.equal(\n  JSON.stringify(gmcEx['chain'])\n)",
                 "err": {},
                 "isRoot": false,
-                "uuid": "ce4ac6e0-ef92-4e9e-a670-60e8f85c5e98",
+                "uuid": "4eca3866-4449-4704-b97d-b615049144c1",
                 "isHook": false,
                 "skipped": false
               }
             ],
             "suites": [],
             "passes": [
-              "65cd4f7e-0100-47aa-9de3-28807de68da2",
-              "ce4ac6e0-ef92-4e9e-a670-60e8f85c5e98"
+              "bfbb6f3e-87fd-4534-b577-16ce4b5d2d43",
+              "4eca3866-4449-4704-b97d-b615049144c1"
             ],
             "failures": [],
             "pending": [],

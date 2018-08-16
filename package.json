@@ -23,7 +23,7 @@
   ],
   "name": "MusicoinApp",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "js/msc.js",
   "license": "MIT",
   "engines": {
     "yarn": ">=1.5.0"
@@ -74,9 +74,11 @@
     "generator-mocha": "^2.0.1",
     "gmc-bin-prebuilts": "^1.1.0-beta1",
     "iron-swipeable-pages": "github:MagLoft/iron-swipeable-pages",
+    "jquery": "~3.3.1",
     "msc-interface": "../msc-interface",
+    "request-promise-native": "~1.0.5",
     "rmdir-promise": "^1.0.0",
     "semver": "^5.5.0",
-    "web3": "github:Musicoin/web3.js"
+    "web3": "../web3.js"
   }
 }
